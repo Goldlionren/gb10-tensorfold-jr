@@ -20,3 +20,9 @@ NOTES*.md
 *.rej
 *.log
 __pycache__/
+/keys-fp4-qad/
+/.venv-hf/
+/.hf-home/
+
+# Local Hugging Face credentials - NEVER COMMIT
+/hf_token

@@ -1,0 +1,5 @@
+ActiveState=active
+SubState=exited
+FragmentPath=/etc/systemd/system/gb10-tensorfold.service
+DropInPaths=
+UnitFileState=enabled

@@ -1,0 +1,26 @@
+# /etc/systemd/system/gb10-tensorfold.service
+[Unit]
+Description=GB10 TensorFold Qwen3.8 FlashNext Main LLM
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+User=james
+WorkingDirectory=/home/james/projects/gb10-tensorfold
+Environment=HOME=/home/james
+Environment=PREPARE=0
+
+ExecStartPre=/home/james/bin/gb10-tensorfold-preflight.sh
+ExecStart=/usr/bin/bash /home/james/projects/gb10-tensorfold/start.sh
+ExecStop=/usr/bin/bash /home/james/projects/gb10-tensorfold/stop.sh
+
+TimeoutStartSec=1500
+TimeoutStopSec=90
+Restart=no
+
+[Install]
+WantedBy=multi-user.target
